@@ -7,10 +7,10 @@
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
 
   <!-- 💣 remove this line
-  <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
-  💣 remove this line -->
+    💣 remove this line -->
+    <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
 
-  <script type="module">
+  <script type="text/babel">
     // 🐨 on the script tag above, change `type="module"`
     // to `type="text/babel"` so babel will compile this code for the browser to run.
 
@@ -19,6 +19,16 @@
       className: 'container',
       children: 'Hello World',
     })
+    /**
+     *  wCode
+     */
+    const cheeldren = 'hellO wORLD'
+    const clanName = 'container'
+    const props = {children: cheeldren, className: clanName}
+    const wElement = <h1 {...props}></h1>
+    /**
+     *  wCode
+     */
 
     // 💰 there are a few subtle differences between JSX and HTML. One such
     // difference is how you apply a class to an element in JSX is by using
@@ -26,6 +36,6 @@
     // 📜 You can learn the differences between JSX and HTML syntax from the React docs here:
     // https://reactjs.org/docs/dom-elements.html#differences-in-attributes
 
-    ReactDOM.render(element, document.getElementById('root'))
+    ReactDOM.render(wElement, document.getElementById('root'))
   </script>
 </body>
