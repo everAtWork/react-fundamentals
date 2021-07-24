@@ -6,6 +6,7 @@
   <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script type="text/babel">
     // 🐨 Make a function called `message` which returns the JSX we want to share
 
@@ -27,8 +28,8 @@
     /**
      * EXTRA CREDIT 1 
      */ 
-    const ec1hiEl = React.createElement(message, {children : 'h³LLø wÅ®LÐ'})
-    const ec1byeEl = React.createElement(message, {children : 'gÓØÐBYÜ wÅ®LÐ'})
+    const ec1hiEl = React.createElement(message, {children : 'h³LLø wÅ®LÐ[ec1hiEl]'})
+    const ec1byeEl = React.createElement(message, {children : 'gÓØÐBYÜ wÅ®LÐ[ec1byeEl]'})
     /**
      * EXTRA CREDIT 2 
      */   function FncMsgCompnt({children}) {
@@ -36,24 +37,37 @@
           <div className="newmessage">{children}</div>   
       )
     }
-    // <FncMsgCompnt {...children}/> 
+    // <FncMsgCompnt/> 
     /**
-     * EXTRA CREDIT 2 
+     * EXTRA CREDIT 3
      */ 
+     function Message3({subject, greeting}) {
+  return (
+    <div className="message">
+      {greeting}, {subject}
+    </div>
+    )
+  }
+        Message3.propTypes = {
+          subject: PropTypes.string.isRequired,
+          greeting: PropTypes.string.isRequired,
+        }
 
     /**
      * wCODE
      */
-    const hiEl = message({children: "Hello wORLD"})
-    const byeEl = message({children: "Goodbye wORLD"}) 
+    const hiEl = message({children: "Hello wORLD[hiEl]"})
+    const byeEl = message({children: "Goodbye wORLD[byeEl]"}) 
     const wElement = (
-      <div className="container">
-        {hiEl}
-        {byeEl}
-        {ec1byeEl}
-        {ec1hiEl}
-        <FncMsgCompnt>YÅW-RÅÅW</FncMsgCompnt>
-        </div>
+      <>
+          {hiEl}
+          {byeEl}
+          {ec1byeEl}
+          {ec1hiEl}
+          <FncMsgCompnt>YÅW-RÅÅW[FncMsgCompnt]</FncMsgCompnt>
+          <Message3 greeting="HÉLLÓ[3]" subject="wÅ®LÐDÐ"/>
+          <Message3 greeting={4} subject="wÓ®LDÐ"/>
+        </>
         )
         /**
          * wCODE
